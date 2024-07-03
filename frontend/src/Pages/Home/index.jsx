@@ -3,17 +3,18 @@ import Layout from "../../Components/Layout"
 import Card from "../../Components/Card"
 import { ShopMaqoaContext } from './../../Context'
 import Banner from "../../Components/Banner"
+import Footer from "../../Components/Footer"
 
 const Home = () => {
 	// const context = useContext(ShopMaqoaContext)
 	const { products } = useContext(ShopMaqoaContext)
-	console.log(products)
+	// console.log(products)
 	// useEffect(() => {
 	// }, [])
 	return (
 		<Layout>
 			{/* TÍTULO */}
-			<h1 className="text-4xl font-bold mb-8">Welcome to MAQOA</h1>
+			<h1 className="text-5xl font-bold mb-8">Welcome to MAQOA</h1>
 			{/* BANNER */}
 			{/* <div className="bg-black w-full h-[20rem] flex justify-center items-center mb-8">
 				<h2 className="text-white">BANNER</h2>
@@ -27,6 +28,7 @@ const Home = () => {
 					))
 				}
 			</ul >
+			<Footer />
 		</Layout >
 	)
 }

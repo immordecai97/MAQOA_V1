@@ -13,10 +13,10 @@ const Banner = () => {
             <button className="bg-black text-white py-2 px-4 rounded border border-transparent hover:bg-white hover:border-black hover:text-black transition ">Play store</button>
           </div>
         </div>
-        <figure className="flex w-[17%] overflow-auto">
+        <figure className="flex w-[17%] ">
           <img
-            className="w-full w-max-[370px] "
-            src="./../../public/images/phone-modificado-2.png"
+            className="w-full w-max-[370px] scale-150 "
+            src="./../../public/images/phone.png"
             alt=""
           />
         </figure>

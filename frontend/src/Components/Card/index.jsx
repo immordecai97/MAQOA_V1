@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ShopMaqoaContext } from "../../Context";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { CategoriesUl } from "../Categories";
 // import { useContext, useEffect } from "react";
 
 const Card = ({ data }) => {
@@ -9,11 +10,9 @@ const Card = ({ data }) => {
   const handleAddToCart = (product) => {
     addToCart(product);
   };
-
-//   useEffect(() => {
-//     console.log('Carrito actualizado:');
-//     console.table(carrito);
-//   }, [carrito]);
+  useEffect(() => {
+    console.log(data)
+  }, [])
 
   return (
     <div className="max-w-60 rounded shadow flex flex-col">
@@ -44,33 +43,31 @@ const Card = ({ data }) => {
           </p>
         </div>
         {/* MÁS DATOS */}
+        {/* TITULO DEL PRODUCTO */}
         <h3 className="font-bold text-xl">{data.title}</h3>
+        {/* DESCRIPCION */}
         <p>{data.description}</p>
-        <p className="font-bold text-lg">$ <span>{data.price}</span></p>
-
-        <div className="flex justify-between py-2">
+        <div className="flex justify-between items-center">
+          {/* PRECIO */}
+          <p className="font-bold text-lg">$<span>{data.price}</span></p>
+          {/* CATEGORIAS */}
+          <CategoriesUl categories={data.categories} />
+        </div>
+        {/* LINK A DETALLES */}
+        <div className="flex flex-col gap-2 mt-2">
           <Link
             to={`/product/${data._id}`}
-            className="bg-white rounded text-black transition py-1 px-2 self-end border border-black hover:bg-black hover:border-transparent hover:text-white"
-          >
+            className=" text-center w-full bg-white rounded text-black transition py-1 px-2 self-end border border-black hover:bg-black hover:border-transparent hover:text-white">
             Details
           </Link>
+          {/* BOTON AGREGAR AL CARRITO */}
           <button
             onClick={() => handleAddToCart(data)}
-            className="bg-black rounded text-white transition py-1 px-2 self-end border border-transparent hover:bg-white hover:border-black hover:text-black"
-          >
+            className="w-full bg-black rounded text-white transition py-1 px-2 self-end border border-transparent hover:bg-white hover:border-black hover:text-black">
             Add to cart
           </button>
         </div>
-        {/* CATEGORIAS */}
-        <ul className="py-2 opacity-80 text-[12px] flex">
-          <li className="py-1 px-2 text-xs">Category:</li>
-          {data.categories.map((categ) => (
-            <li key={categ._id} className="bg-gray-400 rounded py-1 px-2 text-gray-300 text-xs">
-              {categ.name}
-            </li>
-          ))}
-        </ul>
+
       </div>
     </div>
   );
