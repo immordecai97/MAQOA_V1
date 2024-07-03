@@ -9,26 +9,28 @@ import { ArrowLeftCircleIcon } from '@heroicons/react/24/solid';
 const ProductDetails = () => {
   const { id } = useParams();
   const { product, fetchProductById } = useContext(ShopMaqoaContext);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const getProductByID = async () => {
+      // setLoading(true);
+      setError(null);
       try {
         await fetchProductById(id);
       } catch (error) {
         setError(error.message);
       } finally {
-        setLoading(false);
+        // setLoading(false);
       }
     };
 
     getProductByID();
   }, [id]);
 
-  if (loading) {
-    return <div>Cargando...</div>;
-  }
+  // if (loading) {
+  //   return <div>Cargando...</div>;
+  // }
 
   if (error) {
     return <div>Error: {error}</div>;
