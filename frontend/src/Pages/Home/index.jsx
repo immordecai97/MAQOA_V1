@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import Layout from "../../Components/Layout"
 import Card from "../../Components/Card"
 import { ShopMaqoaContext } from './../../Context'
@@ -6,6 +6,9 @@ import { ShopMaqoaContext } from './../../Context'
 const Home = () => {
 	// const context = useContext(ShopMaqoaContext)
 	const { products } = useContext(ShopMaqoaContext)
+	console.log(products)
+	// useEffect(() => {
+	// }, [])
 	return (
 		<Layout>
 			{/* TÍTULO */}

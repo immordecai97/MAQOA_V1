@@ -3,8 +3,7 @@ import ProductModel from "../models/product.model.js";
 /**Traer la lista de todos los productos */
 export const getProductsList = async (req, res) => {
 	try {
-		const productsList = await ProductModel.find().populate('categories')
-		// .populate('createdBy')
+		const productsList = await ProductModel.find().populate('categories').populate('productBy')
 		console.log(productsList);
 		res.status(200).json(productsList);
 		// res.status(200).json({
@@ -50,14 +49,15 @@ export const createProduct = async (req, res) => {
 export const getProductByID = async (req, res) => {
 	try {
 		const { id } = req.params
-		const product = await ProductModel.findById(id).populate('categories').populate('createdBy')
+		const product = await ProductModel.findById(id).populate('categories').populate('productBy')
 		res.status(200).json(product)
 		// res.status(200).json({
 		// 	product
 		// })
 	} catch (error) {
 		res.status(404).json({
-			msg: 'No se encontró el producto'
+			msg: 'No se encontró el producto',
+			error: error.message
 		})
 	}
 }
