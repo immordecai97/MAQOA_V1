@@ -1,7 +1,11 @@
 import Layout from "../../Components/Layout"
 import Card from "../../Components/Card"
 import Banner from "../../Components/Banner"
+<<<<<<< HEAD
 import { fetchProducts } from "../../Services/product.service"
+=======
+import Footer from "../../Components/Footer"
+>>>>>>> parent of c889430 (navbar)
 
 const Home = () => {
 	
@@ -31,6 +35,7 @@ const Home = () => {
 					))
 				}
 			</ul >
+			<Footer />
 		</Layout >
 	)
 }

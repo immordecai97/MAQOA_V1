@@ -8,8 +8,12 @@ const Navbar = () => {
 		<nav className='flex justify-around fixed z-10 top-0 w-full py-5 px-8 bg-white shadow'>
 					<NavLink to='/' className="font-bold">
 <<<<<<< HEAD
+<<<<<<< HEAD
 						<span className='hidden'>MAQOA</span>
 						<img src="/images/maqoa.png" alt="MAQOA logo" className='w-[8rem]'/>
+=======
+						MAQOA
+>>>>>>> parent of c889430 (navbar)
 =======
 						MAQOA
 >>>>>>> parent of c889430 (navbar)

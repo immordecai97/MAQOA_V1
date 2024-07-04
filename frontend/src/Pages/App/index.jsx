@@ -3,7 +3,10 @@ import AppRoutes from './../../Routes';
 import Navbar from '../../Components/Navbar';
 import ModalCart from '../../Components/ModalCart';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Footer from "./../../Components/Footer"
+=======
+>>>>>>> parent of c889430 (navbar)
 =======
 >>>>>>> parent of c889430 (navbar)
 import './App.css';
