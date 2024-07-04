@@ -1,44 +1,24 @@
-import { useParams } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
-import { ShopMaqoaContext } from './../../Context';
-import Layout from './../../Components/Layout';
 import CardProductDetail from '../../Components/CardProductDetail';
 import { Link } from 'react-router-dom';
 import { ArrowLeftCircleIcon } from '@heroicons/react/24/solid';
 
+import { useParams } from 'react-router-dom';
+import Layout from './../../Components/Layout';
+
 const ProductDetails = () => {
-  const { id } = useParams();
-  const { product, fetchProductById } = useContext(ShopMaqoaContext);
-  // const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const { id } = useParams();
+  // const [store, setStore] = useState({})
+  // useEffect(() => {
+  //   fetchProductById(id).then(res=>{
+  //     setStore(product.productBy)
+  //   })
+  // }, [id]);
 
-  useEffect(() => {
-    const getProductByID = async () => {
-      // setLoading(true);
-      setError(null);
-      try {
-        await fetchProductById(id);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        // setLoading(false);
-      }
-    };
+  // console.log(store)
 
-    getProductByID();
-  }, [id]);
-
-  // if (loading) {
+  // if (!product) {
   //   return <div>Cargando...</div>;
   // }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  if (!product) {
-    return <div>No se encontró el producto</div>;
-  }
 
   return (
     <Layout>

@@ -1,7 +1,6 @@
 import "./style.css"
 const Banner = () => {
   return (
-    
       <section className=" flex items-center justify-center  h-[25rem] w-full p-3 m-3 shadow-top-bottom">
         <div className="flex flex-col  w-[800px] p-3 gap-4">
           <h2 className="text-5xl font-extrabold">

@@ -3,7 +3,6 @@
 export const CategoriesUl = ({ categories }) => {
 	return (
 		<ul className="py-2 opacity-80 text-[12px] flex">
-			{/* <li className="py-1 px-2 text-xs">Categories:</li> */}
 			{
 				categories.map((cat) => (
 					<CategoriesLi key={cat._id} name={cat.name} />

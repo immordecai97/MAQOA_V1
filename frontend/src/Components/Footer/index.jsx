@@ -10,7 +10,7 @@ const Footer = () => {
 		<footer className="grid grid-cols-3 bg-[#2b2b2b] text-white w-full p-8 h-[15rem] mt-8">
 			<div className="row-span-2 flex items-center justify-center">
 				<figure className='overflow-hidden flex justify-center items-center cursor-pointer'>
-					<img src="./images/maqoa.iso.png" alt="Maqoa Isologo" className='w-[7rem]' />
+					<img src="/images/maqoa.iso.png" alt="Maqoa Isologo" className='w-[7rem]' />
 				</figure>
 			</div>
 			<div className="flex items-center justify-center">

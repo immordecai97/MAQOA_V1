@@ -1,10 +1,6 @@
-import { useContext } from "react"
-import { ShopMaqoaContext } from "../../Context"
 
 const CardProductDetail = ({ image, title, description, price, categories }) => {
-	const { addToCart } = useContext(ShopMaqoaContext)
 	console.log(categories)
-	// const prod = { image, title, description, price, categories }
 	const handleAddToCart = () => {
 		addToCart(prod)
 	}
@@ -35,13 +31,6 @@ const CardProductDetail = ({ image, title, description, price, categories }) => 
 						<p className='font-bold'>${price}</p>
 						<p className='py-2 opacity-80 text-[12px]'>
 							<span className='font-semibold'>Category: </span>
-							{/* {
-								categories.map(cat => (
-									<span key={cat._id} className='bg-gray-400 rounded py-1 px-2 text-gray-300 text-xs'>
-										{cat.name}
-									</span>
-								))
-							} */}
 						</p>
 						<button
 						onClick={handleAddToCart}

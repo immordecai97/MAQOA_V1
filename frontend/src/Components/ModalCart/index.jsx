@@ -1,9 +1,5 @@
-import { useContext } from 'react';
-import { ShopMaqoaContext } from '../../Context';
 
 const ModalCart = () => {
-	const { showModal, setShowModal, carrito } = useContext(ShopMaqoaContext);
-	const { productsList, quantity, subtotal } = carrito;
 
 	const closeModal = () => {
 		setShowModal(!showModal);

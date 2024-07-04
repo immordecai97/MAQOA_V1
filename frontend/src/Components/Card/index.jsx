@@ -1,20 +1,8 @@
 import { Link } from "react-router-dom";
-import { ShopMaqoaContext } from "../../Context";
-import { useContext, useEffect } from "react";
 import { CategoriesUl } from "../Categories";
-// import { useContext, useEffect } from "react";
 
 const Card = ({ data }) => {
-  const { addToCart } = useContext(ShopMaqoaContext);
-  const store = data.productBy.name
-  const handleAddToCart = (product) => {
-    addToCart(product);
-  };
-  useEffect(() => {
-    console.log(data)
-    console.log(store)
-  }, [])
-
+  
   return (
     <div className="max-w-60 rounded shadow flex flex-col">
       {/* IMAGEN DEL PRODUCTO */}
@@ -33,14 +21,14 @@ const Card = ({ data }) => {
         <div className="flex items-center gap-2">
           <figure className="rounded-full w-[2rem] h-[2rem] overflow-hidden flex items-center">
             <img
-              src="https://i.pinimg.com/736x/2b/58/d9/2b58d965cdee09c70ed00924a162c6b2.jpg"
+              src={store.images.logo}
               alt="Shazi"
               className="w-full transition hover:scale-150 h-full object-cover"
             />
           </figure>
           <p className="text-xs">
             <span className="font-bold">Shop: </span>
-            <span className="hover:text-blue-600 hover:underline cursor-pointer">Shazia</span>
+            <span className="hover:text-blue-600 hover:underline cursor-pointer">{store.name}</span>
           </p>
         </div>
         {/* MÁS DATOS */}
@@ -68,7 +56,6 @@ const Card = ({ data }) => {
             Add to cart
           </button>
         </div>
-
       </div>
     </div>
   );
