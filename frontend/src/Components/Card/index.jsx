@@ -2,7 +2,19 @@ import { Link } from "react-router-dom";
 import { CategoriesUl } from "../Categories";
 
 const Card = ({ data }) => {
+<<<<<<< HEAD
   
+=======
+  const { addToCart } = useContext(ShopMaqoaContext);
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+  };
+  useEffect(() => {
+    console.log(data)
+  }, [])
+
+>>>>>>> parent of c889430 (navbar)
   return (
     <div className="max-w-60 rounded shadow flex flex-col">
       {/* IMAGEN DEL PRODUCTO */}

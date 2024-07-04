@@ -13,6 +13,10 @@ const Home = () => {
 			console.log('HOLA: ', error.message)			
 		}
 	}
+
+
+
+	
 	return (
 		<Layout>
 			{/* TÍTULO */}

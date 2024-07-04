@@ -5,10 +5,14 @@ const Navbar = () => {
 	// 	setShowModal(!showModal)
 	// };
 	return (
-		<nav className='flex justify-around fixed items-center z-10 top-0 w-full py-5 px-8 bg-white shadow'>
+		<nav className='flex justify-around fixed z-10 top-0 w-full py-5 px-8 bg-white shadow'>
 					<NavLink to='/' className="font-bold">
+<<<<<<< HEAD
 						<span className='hidden'>MAQOA</span>
 						<img src="/images/maqoa.png" alt="MAQOA logo" className='w-[8rem]'/>
+=======
+						MAQOA
+>>>>>>> parent of c889430 (navbar)
 					</NavLink>
 
 			<ul className='flex items-center gap-4 '>
