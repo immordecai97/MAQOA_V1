@@ -8,7 +8,7 @@ import CardProductDetail from '../../Components/CardProductDetail';
 
 const ProductDetails = () => {
   const { id } = useParams()
-  const { product, setProduct, store, setStore } = useContext(ShopMaqoaContext)
+  const { product, setProduct, setStore } = useContext(ShopMaqoaContext)
   const handleFetchProductById = async () => {
     try {
       const data = await fetchProductById(id)

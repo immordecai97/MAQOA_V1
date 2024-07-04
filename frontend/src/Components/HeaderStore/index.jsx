@@ -5,6 +5,9 @@ import { ShopMaqoaContext } from '../../Context';
 
 const HeaderStore = () => {
 	const { store } = useContext(ShopMaqoaContext)
+	if(!store){
+		return <div>cargando...</div>
+	}
 	return (
 		<div className="w-full max-w-[768px]  mt-8  flex items-center justify-between">
 			<div className="flex items-center gap-4 w-full  ">
