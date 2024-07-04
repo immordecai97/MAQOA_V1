@@ -32,8 +32,6 @@ const Home = () => {
 
 	return (
 		<Layout title="Welcome to MAQOA">
-			{/* TÍTULO */}
-			{/* <Heading title="Welcome to MAQOA" /> */}
 			{/* BANNER */}
 			<Banner />
 			{/* PRODUCTOS */}

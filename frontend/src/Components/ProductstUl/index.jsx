@@ -17,11 +17,11 @@ const ProductstUl = ({ products }) => {
 
 const Card = ({ data }) => {
   const { store, setStore } = useContext(ShopMaqoaContext)
-  useEffect(() =>{
+  useEffect(() => {
     setStore(data.productBy)
-  },[store])
+  }, [store])
 
-  if(!store){
+  if (!store) {
     return <div> Cargando... </div>
   }
 
@@ -44,13 +44,16 @@ const Card = ({ data }) => {
           <figure className="rounded-full w-[2rem] h-[2rem] overflow-hidden flex items-center">
             <img
               src={store.images.logo}
-              alt="Shazi"
+              alt={store.name}
               className="w-full transition hover:scale-150 h-full object-cover"
             />
           </figure>
           <p className="text-xs">
             <span className="font-bold">Shop: </span>
-            <span className="hover:text-blue-600 hover:underline cursor-pointer">{store.name}</span>
+            <Link to={`/store/${store._id}`} className="hover:text-blue-600 hover:underline">
+              {store.name}
+            </Link>
+            {/* <span className="hover:text-blue-600 hover:underline cursor-pointer">{store.name}</span> */}
           </p>
         </div>
         {/* MÁS DATOS */}
