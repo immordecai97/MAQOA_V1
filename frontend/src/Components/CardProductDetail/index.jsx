@@ -8,8 +8,8 @@ const CardProductDetail = () => {
 	const { images, title, description, price, categories } = product
 	
 	return (
-		<div className='w-full flex justify-center mt-8'>
-			<div className='flex justify-between w-10/12'>
+		<div className='w-full  flex justify-evenly mt-8'>
+			<div className='flex justify-between w-full max-w-[770px] mx-auto'>
 				{/* IZQUIERDO */}
 				<div className='w-80 p-2'>
 					<figure className='max-w-[20rem] max-h-[20rem] overflow-hidden rounded'>

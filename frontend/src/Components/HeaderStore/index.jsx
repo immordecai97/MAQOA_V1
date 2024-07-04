@@ -6,8 +6,8 @@ import { ShopMaqoaContext } from '../../Context';
 const HeaderStore = () => {
 	const { store } = useContext(ShopMaqoaContext)
 	return (
-		<div className="w-full mt-8 px-32 flex items-center justify-between">
-			<div className="flex items-center gap-4">
+		<div className="w-full max-w-[768px]  mt-8  flex items-center justify-between">
+			<div className="flex items-center gap-4 w-full  ">
 				<figure className="rounded-full overflow-hidden w-[5rem] h-[5rem] flex justify-center items-center">
 					<img src={store.images.logo} alt="Shazi" className='w-full transition hover:scale-150 h-full object-cover' />
 				</figure>
