@@ -53,7 +53,6 @@ const Card = ({ data }) => {
             <Link to={`/store/${store._id}`} className="hover:text-blue-600 hover:underline">
               {store.name}
             </Link>
-            {/* <span className="hover:text-blue-600 hover:underline cursor-pointer">{store.name}</span> */}
           </p>
         </div>
         {/* MÁS DATOS */}

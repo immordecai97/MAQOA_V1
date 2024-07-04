@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom';
+import { IconGhost } from '@tabler/icons-react';
 
 const Navbar = () => {
     return (
         <nav className='flex justify-around fixed z-10 top-0 w-full py-5 px-8 bg-white shadow'>
-                    <NavLink to='/' className="font-bold">
-                        MAQOA
-                    </NavLink>
+            <NavLink to='/' className="font-bold">
+                MAQOA
+            </NavLink>
 
             <ul className='flex items-center gap-4 '>
                 <li>
@@ -24,20 +25,18 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/'>
+                    <NavLink to='/register'>
                         Sign up
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/'>
+                    <NavLink to='/login'>
                         Log in
                     </NavLink>
                 </li>
-                {/* <li
-                    // onClick={handleToggleModalCart}
-                    className='font-semibold text-lg cursor-pointer'>
-                    🛒 {quantity}
-                </li> */}
+                <li>
+                    <IconGhost stroke={1.25} />
+                </li>
             </ul>
         </nav>
     );
