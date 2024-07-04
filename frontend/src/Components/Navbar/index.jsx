@@ -9,8 +9,12 @@ const Navbar = () => {
 					<NavLink to='/' className="font-bold">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 						<span className='hidden'>MAQOA</span>
 						<img src="/images/maqoa.png" alt="MAQOA logo" className='w-[8rem]'/>
+=======
+						MAQOA
+>>>>>>> parent of c889430 (navbar)
 =======
 						MAQOA
 >>>>>>> parent of c889430 (navbar)
