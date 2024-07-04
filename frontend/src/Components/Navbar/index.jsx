@@ -11,20 +11,37 @@ const Navbar = () => {
 	};
 
 	return (
-		<nav className='flex justify-between fixed z-10 top-0 w-full py-5 px-8 bg-white shadow'>
-			<ul className='flex items-center gap-3'>
-				<li className='font-semibold text-lg'>
-					<NavLink to='/'>
+		<nav className='flex justify-around fixed z-10 top-0 w-full py-5 px-8 bg-white shadow'>
+					<NavLink to='/' className="font-bold">
 						MAQOA
 					</NavLink>
-				</li>
+
+			<ul className='flex items-center gap-4 '>
 				<li>
 					<NavLink to='/'>
 						Home
 					</NavLink>
 				</li>
-			</ul>
-			<ul className='flex items-center gap-3'>
+				<li>
+					<NavLink to='/'>
+						About us
+					</NavLink>
+				</li>
+				<li>
+					<NavLink to='/'>
+						Shops
+					</NavLink>
+				</li>
+				<li>
+					<NavLink to='/'>
+						Sign up
+					</NavLink>
+				</li>
+				<li>
+					<NavLink to='/'>
+						Log in
+					</NavLink>
+				</li>
 				<li
 					onClick={handleToggleModalCart}
 					className='font-semibold text-lg cursor-pointer'>

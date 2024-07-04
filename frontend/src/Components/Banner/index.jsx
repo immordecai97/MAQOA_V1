@@ -1,8 +1,8 @@
 import "./style.css"
 const Banner = () => {
   return (
-    <div className="banner h-[25rem] w-full flex   p-3 m-3 shadow-top-bottom">
-      <section className=" h-full flex items-center justify-center">
+    
+      <section className=" flex items-center justify-center  h-[25rem] w-full p-3 m-3 shadow-top-bottom">
         <div className="flex flex-col  w-[800px] p-3 gap-4">
           <h2 className="text-5xl font-extrabold">
             Download Our Mobile <span>App</span> !
@@ -13,15 +13,14 @@ const Banner = () => {
             <button className="bg-black text-white py-2 px-4 rounded border border-transparent hover:bg-white hover:border-black hover:text-black transition ">Play store</button>
           </div>
         </div>
-        <figure className="flex w-[17%] ">
+        <figure className="flex justify-center items-center">
           <img
-            className="w-full w-max-[370px] scale-150 "
+            className="w-full max-w-[250px] scale-150 "
             src="./../../public/images/phone.png"
             alt=""
           />
         </figure>
       </section>
-    </div>
   );
 };
 
