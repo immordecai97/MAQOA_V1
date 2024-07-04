@@ -1,10 +1,6 @@
 import Layout from "../../Components/Layout"
 import Card from "../../Components/Card"
 import Banner from "../../Components/Banner"
-
-import { fetchProducts } from "../../Services/product.service"
-import Footer from "../../Components/Footer"
-import Footer from "../../Components/Footer"
 import Footer from "../../Components/Footer"
 
 const Home = () => {
