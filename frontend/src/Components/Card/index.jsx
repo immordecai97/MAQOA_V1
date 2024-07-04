@@ -6,12 +6,13 @@ import { CategoriesUl } from "../Categories";
 
 const Card = ({ data }) => {
   const { addToCart } = useContext(ShopMaqoaContext);
-
+  const store = data.productBy.name
   const handleAddToCart = (product) => {
     addToCart(product);
   };
   useEffect(() => {
     console.log(data)
+    console.log(store)
   }, [])
 
   return (

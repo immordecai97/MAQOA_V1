@@ -3,7 +3,7 @@ import Layout from "../../Components/Layout"
 import Card from "../../Components/Card"
 import { ShopMaqoaContext } from './../../Context'
 import Banner from "../../Components/Banner"
-import Footer from "../../Components/Footer"
+// import Footer from "../../Components/Footer"
 
 const Home = () => {
 	// const context = useContext(ShopMaqoaContext)
@@ -28,7 +28,6 @@ const Home = () => {
 					))
 				}
 			</ul >
-			<Footer />
 		</Layout >
 	)
 }
