@@ -9,3 +9,13 @@ export const fetchProducts = async () => {
 		console.log('Hubo un error: ', error.message)
 	}
 }
+
+export const fetchProductById = async (id) => {
+	try {
+		const res = await fetch(`http://localhost:3000/products/${id}`)
+		const data = await res.json()
+		return data
+	} catch (error) {
+		console.log('Hubo un error: ', error.message)
+	}
+}

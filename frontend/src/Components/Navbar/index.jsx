@@ -1,9 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-	// const handleToggleModalCart = () => {
-	// 	setShowModal(!showModal)
-	// };
 	return (
 		<nav className='flex justify-around fixed z-10 top-0 w-full py-5 px-8 bg-white shadow'>
 					<NavLink to='/' className="font-bold">
@@ -36,11 +33,11 @@ const Navbar = () => {
 						Log in
 					</NavLink>
 				</li>
-				<li
-					onClick={handleToggleModalCart}
+				{/* <li
+					// onClick={handleToggleModalCart}
 					className='font-semibold text-lg cursor-pointer'>
 					🛒 {quantity}
-				</li>
+				</li> */}
 			</ul>
 		</nav>
 	);
