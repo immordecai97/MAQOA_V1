@@ -1,6 +1,8 @@
+const API = 'http://localhost:3000/products'
+
 export const fetchProducts = async () => {
 	try {
-		const res = await fetch('http://localhost:3000/products')
+		const res = await fetch(API)
 		const data = await res.json()
 		console.log('Fetch products:')
 		console.table(data)
@@ -12,7 +14,7 @@ export const fetchProducts = async () => {
 
 export const fetchProductById = async (id) => {
 	try {
-		const res = await fetch(`http://localhost:3000/products/${id}`)
+		const res = await fetch(`${API}/${id}`)
 		const data = await res.json()
 		return data
 	} catch (error) {

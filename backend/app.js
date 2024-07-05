@@ -13,13 +13,16 @@ const port = process.env.PORT ?? 8080
 
 //Middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+	origin: 'http://localhost:5173',
+	credentials: true,
+}))
 app.use(cookieParser())
 
 //rutas
 routerApi(app)
 
 //listening
-app.listen(port, ()=>{
+app.listen(port, () => {
 	console.log(`http://localhost:${port}`)
 })

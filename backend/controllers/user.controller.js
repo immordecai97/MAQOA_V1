@@ -33,10 +33,18 @@ export const createUser = async (req, res) => {
 
 		await newUser.validate();
 		await newUser.save();
-
-		res.status(201).json({
-			msg: "Usuario creado",
-		});
+		const userRegistered = {
+			username: newUser.username,
+			email: newUser.email,
+			role: newUser.role,
+			_id: newUser._id,
+			createdAt: newUser.createdAt,
+			updatedAt: newUser.updatedAt,
+		}
+		res.status(201).json(userRegistered);
+		// res.status(201).json({
+		// 	msg: "Usuario creado",
+		// });
 	} catch (error) {
 		if (error.code === 11000) {
 			return res.status(400).json({ msg: 'Nombre de usuario ya registrado' });
@@ -47,7 +55,6 @@ export const createUser = async (req, res) => {
 		});
 	}
 };
-
 
 /** Ver usuario By ID */
 export const getUserByID = async (req, res) => {
@@ -107,12 +114,12 @@ export const login = async (req, res) => {
 		const user = await UserModel.findOne({ email });
 
 		if (!user) {
-			return res.status(404).json({ msg: 'Usuario no registrado' });
+			return res.status(404).json('Usuario no registrado');
 		}
 
 		const match = await bcrypt.compare(password, user.password);
 		if (!match) {
-			return res.status(401).json({ msg: 'Contraseña inválida' });
+			return res.status(401).json('Contraseña inválida');
 		}
 
 		const token = jwt.sign(
@@ -126,7 +133,13 @@ export const login = async (req, res) => {
 		)
 
 		res.cookie('token', token, { httpOnly: true })
-		res.status(200).json(token);
+		// res.status(200).json(token);
+
+		res.json({
+			_id: user._id,
+			username: user.username,
+			email: user.email,
+		});
 		// res.status(200).json({
 		// 	msg: 'Iniciado sesión',
 		// 	token

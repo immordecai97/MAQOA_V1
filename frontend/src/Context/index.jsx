@@ -1,4 +1,6 @@
 import { createContext, useState, useEffect } from "react"
+import { registerUser, loginUser } from "../Services/auth.service"
+
 
 export const ShopMaqoaContext = createContext()
 
@@ -8,7 +10,33 @@ export const ShopMaqoaProvider = ({ children }) => {
     const [products, setProducts] = useState([])
     const [product, setProduct] = useState(null)
     const [store, setStore] = useState(null)
-    
+    const [user, setUser] = useState()
+    const [isAuth, setIsAuth] = useState(false)
+
+    const signUp = async (user) => {
+        try {
+            const res = await registerUser(user)
+            console.table(res)
+            setUser(res)
+            // setIsAuth(true)
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+    const signIn = async (user) => {
+        try {
+            // console.log(user)
+            const res = await loginUser(user)
+            console.log(res)
+            setUser(res)
+            setIsAuth(true)
+            return
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
     // const [carrito, setCarrito] = useState({
     //     productsList: [],
     //     quantity: 0,
@@ -83,7 +111,9 @@ export const ShopMaqoaProvider = ({ children }) => {
         <ShopMaqoaContext.Provider value={{
             products, setProducts,
             product, setProduct,
-            store, setStore
+            store, setStore,
+            user, signUp,
+            isAuth, signIn
             // carrito, addToCart,
             // showModal, setShowModal
         }}>
