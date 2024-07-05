@@ -1,29 +1,40 @@
+import { useContext } from "react";
+import { ShopMaqoaContext } from "../../Context";
+import { IconPlus, IconMinus, IconX  } from '@tabler/icons-react';
+import './styles.css'
 
 const ModalCart = () => {
-
-	const closeModal = () => {
-		setShowModal(!showModal);
-	};
-
+	const { showModal, toggleModal, cartBasket, addToCart } = useContext(ShopMaqoaContext)
 	return showModal ? (
 		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-			<div className="bg-white p-6 rounded-lg">
-				<h2 className="text-xl font-semibold mb-4">Carrito de Compras</h2>
+			<div className="bg-white p-6 rounded-lg w-[35rem]">
+				<div className="flex items-center justify-around">
+					<h2 className="text-xl font-semibold">Cart</h2>
+					<IconX onClick={toggleModal} className="transition rounded-full hover:text-white hover:bg-black "/>
+				</div>
 				<ul>
-					{productsList.map((product) => (
-						<li key={product._id} className="flex justify-between mb-2">
-							<span>{product.name}</span>
-							<span>Cantidad: {product.quantity}</span>
-							<span>Subtotal: ${product.subtotal}</span>
+					{cartBasket.map((product) => (
+						<li key={product._id} className="flex gap-4 items-center justify-center my-2 shadow-slate-900 py-2 px-4">
+							<div className="flex items-center gap-4 w-full">
+								<figure className="flex items-center justify-center h-[2.6rem] w-[2.6rem] rounded-full overflow-hidden">
+									<img src={product.images[0]} alt={product.title} className="w-full h-full object-cover" />
+								</figure>
+								<div className="flex flex-col gap-2">
+									<h3 className="font-bold">{product.title}</h3>
+									<div className="flex flex-col">
+										<div className="flex justify-around items-center w-full min-w-36">
+											<button className="rounded-full bg-black p-1"><IconPlus onClick={()=>addToCart(product)} className="text-white" width="16" height="16" /></button>
+											<p className="font-bold">{product.quantity}</p>
+											<button className="rounded-full bg-black p-1"><IconMinus className="text-white" width="16" height="16" /></button>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<p className="font-bold">${product.subtotal.toFixed(2)}</p>
 						</li>
 					))}
 				</ul>
-				<p className="mt-4">
-					Total de Productos: {quantity}, Subtotal: ${subtotal}
-				</p>
-				<button onClick={closeModal} className="mt-4 bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded-lg">
-					Cerrar
-				</button>
 			</div>
 		</div>
 	) : null;

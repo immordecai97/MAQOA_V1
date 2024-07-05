@@ -5,8 +5,9 @@ import { registerUser, loginUser } from "../Services/auth.service"
 export const ShopMaqoaContext = createContext()
 
 export const ShopMaqoaProvider = ({ children }) => {
-    // !variables de estado
-    // const [showModal, setShowModal] = useState(false)
+    // !Modal
+    const [showModal, setShowModal] = useState(false)
+    const toggleModal = () => setShowModal((prevModal) => !prevModal)
     //!products
     const [products, setProducts] = useState([])
     const [product, setProduct] = useState(null)
@@ -52,14 +53,21 @@ export const ShopMaqoaProvider = ({ children }) => {
             const existingProduct = prevCartBasket.find(item => item._id === prod._id)
             if (existingProduct) {
                 return prevCartBasket.map(item =>
-                    item._id === prod._id ? { ...item, quantity: item.quantity + 1 } : item
+                    item._id === prod._id ? {
+                        ...item,
+                        quantity: item.quantity + 1,
+                        subtotal: item.price * (item.quantity + 1)
+                    } : item
                 )
             } else {
-                return [...prevCartBasket, { ...prod, quantity: 1 }]
+                return [...prevCartBasket, { 
+                    ...prod, 
+                    quantity: 1,
+                    subtotal: prod.price
+                }]
             }
         })
         setCartQuantity(prevQuantity => prevQuantity + 1)
-        setCartSubtotal(prevSubtotal => prevSubtotal + prod.price)
     }
 
     return (
@@ -69,7 +77,8 @@ export const ShopMaqoaProvider = ({ children }) => {
             store, setStore,
             currentRegister, setCurrentRegister, signUp,
             user, isAuth, signIn,
-            cartBasket, cartsubtotal, cartQuantity, addToCart
+            cartBasket, cartsubtotal, cartQuantity, addToCart,
+            showModal, toggleModal,
         }}>
             {children}
         </ShopMaqoaContext.Provider>

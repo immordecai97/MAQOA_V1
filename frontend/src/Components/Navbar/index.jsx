@@ -6,7 +6,9 @@ import { ShopMaqoaContext } from '../../Context';
 const Navbar = () => {
   const {
     isAuth,
-    cartQuantity
+    cartQuantity,
+    // showModal,
+    toggleModal
   } = useContext(ShopMaqoaContext); // isAuth está false por defecto
   return (
     <nav className='flex justify-around fixed z-10 top-0 w-full py-5 px-8 bg-white shadow'>
@@ -50,8 +52,8 @@ const Navbar = () => {
             </li>
           </>
         )}
-        <li className='flex items-center'>
-          <IconGhost stroke={1.25} /> <span className='bg-black text-white rounded-full w-[1.1rem] h-[1.1rem] flex items-center justify-center text-xs'>{cartQuantity}</span>
+        <li className='flex items-center cursor-pointer'>
+          <IconGhost stroke={1.25} onClick={toggleModal}/> <span className='bg-black text-white rounded-full w-[1.1rem] h-[1.1rem] flex items-center justify-center text-xs'>{cartQuantity}</span>
         </li>
       </ul>
     </nav>

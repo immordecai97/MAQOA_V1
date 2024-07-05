@@ -4,7 +4,7 @@ import { CategoriesUl } from "../Categories"
 
 const CardProductDetail = () => {
 
-	const { store, product } = useContext(ShopMaqoaContext)
+	const { store, product, addToCart } = useContext(ShopMaqoaContext)
 	const { images, title, description, price, categories } = product
 	
 	return (
@@ -36,7 +36,7 @@ const CardProductDetail = () => {
 							<CategoriesUl categories={categories} />
 						</div>
 						<button
-							// onClick={handleAddToCart}
+							onClick={()=>addToCart(product)}
 							className='bg-black rounded text-white transition py-1 px-2 self-end border border-transparent hover:bg-white hover:border-black hover:text-black w-full'>Add to cart</button>
 					</div>
 				</div>
