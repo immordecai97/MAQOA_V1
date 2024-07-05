@@ -51,12 +51,10 @@ export const ShopMaqoaProvider = ({ children }) => {
         setCartBasket(prevCartBasket => {
             const existingProduct = prevCartBasket.find(item => item._id === prod._id)
             if (existingProduct) {
-                // Increment the quantity if the product already exists in the cart
                 return prevCartBasket.map(item =>
                     item._id === prod._id ? { ...item, quantity: item.quantity + 1 } : item
                 )
             } else {
-                // Add the product to the cart if it does not exist
                 return [...prevCartBasket, { ...prod, quantity: 1 }]
             }
         })
@@ -71,7 +69,7 @@ export const ShopMaqoaProvider = ({ children }) => {
             store, setStore,
             currentRegister, setCurrentRegister, signUp,
             user, isAuth, signIn,
-            addToCart, cartBasket, cartsubtotal, cartQuantity,
+            cartBasket, cartsubtotal, cartQuantity, addToCart
         }}>
             {children}
         </ShopMaqoaContext.Provider>
