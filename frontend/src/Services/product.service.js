@@ -4,8 +4,8 @@ export const fetchProducts = async () => {
 	try {
 		const res = await fetch(API)
 		const data = await res.json()
-		console.log('Fetch products:')
-		console.table(data)
+		// console.log('Fetch products:')
+		// console.table(data)
 		return data
 	} catch (error) {
 		console.log('Hubo un error: ', error.message)

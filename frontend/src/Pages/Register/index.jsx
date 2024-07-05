@@ -6,9 +6,9 @@ import { Navigate } from "react-router-dom";
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { signUp, isAuth } = useContext(ShopMaqoaContext);
+    const { signUp, currentRegister } = useContext(ShopMaqoaContext);
 
-    if (isAuth) {
+    if (currentRegister) {
         return <Navigate to="/login" />;
     }
 

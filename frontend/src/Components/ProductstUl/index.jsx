@@ -16,7 +16,8 @@ const ProductstUl = ({ products }) => {
 }
 
 const Card = ({ data }) => {
-  const { store, setStore } = useContext(ShopMaqoaContext)
+
+  const { store, setStore, addToCart } = useContext(ShopMaqoaContext)
   useEffect(() => {
     setStore(data.productBy)
   }, [store])
@@ -74,11 +75,11 @@ const Card = ({ data }) => {
             Details
           </Link>
           {/* BOTON AGREGAR AL CARRITO */}
-          {/* <button
-            onClick={() => handleAddToCart(data)}
+          <button
+            onClick={() => addToCart(data)}
             className="w-full bg-black rounded text-white transition py-1 px-2 self-end border border-transparent hover:bg-white hover:border-black hover:text-black">
             Add to cart
-          </button> */}
+          </button>
         </div>
       </div>
     </div>

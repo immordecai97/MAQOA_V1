@@ -1,15 +1,18 @@
 import Layout from "../../Components/Layout"
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ShopMaqoaContext } from "../../Context";
 import { Navigate } from "react-router-dom";
 
 
-
 const Login = () => {
 
 	const { register, handleSubmit, formState: { errors } } = useForm();
-	const { signIn, isAuth } = useContext(ShopMaqoaContext);
+	const { signIn, isAuth, setCurrentRegister } = useContext(ShopMaqoaContext);
+
+	useEffect(()=>{
+		setCurrentRegister(false)
+	},[])
 
 	if (isAuth) {
 		return <Navigate to="/" />;
