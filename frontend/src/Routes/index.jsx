@@ -7,6 +7,7 @@ import Register from '../Pages/Register'
 import AboutUs from '../Pages/AboutUs'
 import Checkout from '../Pages/Checkout'
 import Thanks from './../Pages/Thanks'
+import User from '../Pages/User'
 
 import { Navigate } from 'react-router-dom';
 import { useContext } from 'react';
@@ -29,6 +30,7 @@ const AppRoutes = () => {
 		{ path: '/aboutus', element: <AboutUs /> },
 		{ path: '/checkout', element: <PrivateRoute element={Checkout} /> },
 		{ path: '/thanks', element: <PrivateRoute element={Thanks} /> },
+		{ path: '/dashboard', element: <PrivateRoute element={User} /> },
 		{ path: '/store/:id', element: <Store /> },
 		{ path: '/product/:id', element: <ProductDetails />},
 	])
