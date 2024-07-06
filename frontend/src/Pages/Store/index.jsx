@@ -7,7 +7,7 @@ const Store = () => {
         <div className="w-full max-w-[1366px] relative h-[325px]">
           <figure className="h-[325px] bg-yellow-500 border border-red-700 w-full ">
             <img
-              src="./../../public/images/maqoa.png"
+              src="/images/maqoa.png"
               alt=" "
               className="w-full max-w-[450px]"
             />

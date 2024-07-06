@@ -26,3 +26,22 @@ export const loginUser = async(user) => {
 	const data = await res.json()
 	return data
 }
+
+export const logOut = async () => {
+	try {
+	    const res = await fetch(`${API}/logout`, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		credentials: 'include', // Incluir cookies en la solicitud
+	    });
+	    if (res.ok) {
+		return true; // Indicar que el logout fue exitoso
+	    } else {
+		throw new Error('Failed to log out');
+	    }
+	} catch (error) {
+	    console.log('Hubo un error en el logout', error);
+	    return false;
+	}
+    }
+    

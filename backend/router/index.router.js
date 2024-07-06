@@ -3,6 +3,7 @@ import userRouter from "./user.router.js"
 import storeRouter from "./store.router.js"
 import productRouter from "./product.router.js"
 import categoryRouter from "./category.router.js"
+import purchaseRouter from "./purchase.router.js"
 
 const routerApi = (app) => {
 	app.use('/', homeRouter);
@@ -10,6 +11,7 @@ const routerApi = (app) => {
 	app.use('/store', storeRouter);
 	app.use('/products', productRouter);
 	app.use('/categories', categoryRouter);
+	app.use('/purchases', purchaseRouter);
 }
 
 export default routerApi

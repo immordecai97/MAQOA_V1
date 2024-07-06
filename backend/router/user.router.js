@@ -16,7 +16,7 @@ router.post("/create", createUser);
 router.post("/login", login);
 
 /** Cerrar sesion del usuario GET*/
-router.get("/logout", logout);
+router.post("/logout", logout);
 // router.get("/logout", authUser, logout);
 
 /** Mostrar un usuario segun si ID GET*/
