@@ -117,25 +117,25 @@ const User = () => {
                     <ul className="flex flex-col justify-start gap-2 mt-2">
                         {history?.map((hist) => (
                             <li key={hist._id} className="border rounded-lg shadow p-2 text-start text-xs">
-                                <div className="flex justify-between">
+                                <div className="flex justify-between w-full ">
                                     <p className="text-start">
                                         <span className="font-bold">Order: </span>
                                         <span>{hist._id}</span></p>
                                     <p className="font-bold">${hist.total}</p>
                                 </div>
-                                <div className="flex">
-                                    <p className="w-full">
+                                <div className="flex justify-between">
+                                    <p>
                                         <span className="font-bold">From: </span>
                                         <span>{hist.address.country}</span>
                                     </p>
-                                    <p className="w-full">
+                                    <p>
                                         <span className="font-bold">to: </span>
                                         <span>{hist.address.address}</span>
                                     </p>
                                 </div>
-                                <div className="flex justify-between">
-                                    <p><span className=" font-bold">Date:</span> <span>{formatDate(hist.createdAt)}</span></p>
-                                    <p><span className=" font-bold">Quantity products:</span> <span>{hist.cartBasket.length}</span></p>
+                                <div className="flex justify-between w-full">
+                                    <p><span className="font-bold">Date:</span> <span>{formatDate(hist.createdAt)}</span></p>
+                                    <p><span className="font-bold">Quantity products:</span> <span>{hist.cartBasket.length}</span></p>
                                 </div>
                             </li>
                         ))}
