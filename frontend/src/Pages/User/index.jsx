@@ -56,9 +56,8 @@ const User = () => {
     return (
         <Layout title={"Account"}>
             <section className="w-full max-w-[1200px] flex justify-center flex-wrap items-center text-center gap-4 rounded border h-full max-h-[900px] shadow-lg">
-                <h2 className="w-full mt-6 text-[1.8rem] font-bold">Dashboard de Usuario</h2>
                 <div className="w-full max-w-[550px] p-3 border rounded-lg my-4 shadow-lg">
-                    <h3 className="w-full text-[1.2rem] font-bold">User account</h3>
+                    <h2 className="w-full text-[1.2rem] font-bold">User account</h2>
                     {isEditing ? (
                         <form onSubmit={handleSubmit}>
                             <div className="mb-4">
@@ -93,7 +92,7 @@ const User = () => {
                         <ul className="flex flex-col justify-start gap-2 mt-2">
                             <li className="border rounded-lg shadow">
                                 <p className="text-start m-2">
-                                    <span className="font-bold">Username: </span> <span>{user.username}</span>
+                                    <span className="font-bold">Username: </span> <span className="capitalize">{user.username}</span>
                                 </p>
                             </li>
                             <li className="border rounded-lg shadow">

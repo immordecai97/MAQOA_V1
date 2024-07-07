@@ -31,7 +31,7 @@ const Store = () => {
   return (
     <LayoutStore>
       <div className="flex w-full justify-center items-center ">
-          <figure className="w-full overflow-hidden flex items-center justify-center min-h-[20rem]">
+          <figure className="w-full overflow-hidden flex items-center justify-center min-h-[20rem] max-h-[25rem]">
             <img
               src={store.images.banner}
               alt={store.name}

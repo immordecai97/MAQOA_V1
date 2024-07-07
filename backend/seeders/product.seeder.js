@@ -31,167 +31,101 @@ const seedProductsToDB = async () => {
         const stores = await getStores();
 
         const seedProducts = [
-            // Productos para la primera tienda (2 productos)
+            // PIZZA BAY
             {
-                title: 'Producto 1 Tienda 1',
+                title: 'lil drawing yellow',
                 price: 19.99,
-                description: 'Descripción del producto 1 para la Tienda 1.',
+                description: 'Hight-quality cotton hoodie with custom graphic print',
                 quantity: 50,
                 subtotal: 0,
                 stock: 100,
-                categories: [categories[0]],
+                categories: [categories[1]],
                 productBy: stores[0]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
+                images: ['https://i.pinimg.com/564x/e5/ae/60/e5ae602608c01507201a5a71c3d4342c.jpg']
             },
             {
-                title: 'Producto 2 Tienda 1',
+                title: 'Good mood',
                 price: 29.99,
-                description: 'Descripción del producto 2 para la Tienda 1.',
+                description: 'Hight-quality cotton hoodie with custom graphic print',
                 quantity: 40,
                 subtotal: 0,
                 stock: 80,
                 categories: [categories[1]],
                 productBy: stores[0]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
+                images: ['https://i.pinimg.com/564x/b2/0a/b9/b20ab9c43f388ae1ec75eb972febeeb7.jpg']
             },
 
-            // Productos para la segunda tienda (3 productos)
+            // NOT NORMAL
             {
-                title: 'Producto 1 Tienda 2',
+                title: 'Cube case',
                 price: 24.99,
-                description: 'Descripción del producto 1 para la Tienda 2.',
+                description: 'Phone case with a custom graphic print',
                 quantity: 30,
                 subtotal: 0,
                 stock: 60,
-                categories: [categories[2]],
+                categories: [categories[0]],
                 productBy: stores[1]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
+                images: ['https://i.pinimg.com/564x/d7/05/54/d70554210227d2b3611201d0123c753e.jpg']
             },
             {
-                title: 'Producto 2 Tienda 2',
+                title: 'Eye case',
                 price: 34.99,
-                description: 'Descripción del producto 2 para la Tienda 2.',
+                description: 'Phone case with a custom graphic print',
                 quantity: 25,
                 subtotal: 0,
                 stock: 50,
-                categories: [categories[3]],
-                productBy: stores[1]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
-            },
-            {
-                title: 'Producto 3 Tienda 2',
-                price: 44.99,
-                description: 'Descripción del producto 3 para la Tienda 2.',
-                quantity: 20,
-                subtotal: 0,
-                stock: 40,
                 categories: [categories[0]],
                 productBy: stores[1]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
+                images: ['https://i.pinimg.com/564x/34/06/49/3406495b5cab497b1a0abf92243951f5.jpg']
             },
 
-            // Productos para la tercera tienda (4 productos)
+            // GOOD KARMA
             {
-                title: 'Producto 1 Tienda 3',
+                title: 'Indie shirt',
                 price: 19.99,
-                description: 'Descripción del producto 1 para la Tienda 3.',
+                description: 'Hight-quality cotton t-shirt with custom graphic print',
                 quantity: 50,
                 subtotal: 0,
                 stock: 100,
-                categories: [categories[1]],
-                productBy: stores[2]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
-            },
-            {
-                title: 'Producto 2 Tienda 3',
-                price: 29.99,
-                description: 'Descripción del producto 2 para la Tienda 3.',
-                quantity: 40,
-                subtotal: 0,
-                stock: 80,
                 categories: [categories[2]],
                 productBy: stores[2]._id,
                 images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
             },
             {
-                title: 'Producto 3 Tienda 3',
-                price: 39.99,
-                description: 'Descripción del producto 3 para la Tienda 3.',
-                quantity: 30,
+                title: 'Composition shirt',
+                price: 29.99,
+                description: 'Hight-quality cotton t-shirt with custom graphic print',
+                quantity: 40,
                 subtotal: 0,
-                stock: 60,
-                categories: [categories[3]],
+                stock: 80,
+                categories: [categories[2]],
                 productBy: stores[2]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
-            },
-            {
-                title: 'Producto 4 Tienda 3',
-                price: 49.99,
-                description: 'Descripción del producto 4 para la Tienda 3.',
-                quantity: 20,
-                subtotal: 0,
-                stock: 40,
-                categories: [categories[0]],
-                productBy: stores[2]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
+                images: ['https://i.pinimg.com/564x/c7/bc/13/c7bc135e2e6ba2ed317e431b542bbb03.jpg']
             },
 
-            // Productos para la cuarta tienda (5 productos)
+            // RED ACID
             {
-                title: 'Producto 1 Tienda 4',
+                title: 'Mug to read',
                 price: 19.99,
-                description: 'Descripción del producto 1 para la Tienda 4.',
+                description: 'A mug with a custom graphic print',
                 quantity: 50,
                 subtotal: 0,
                 stock: 100,
                 categories: [categories[3]],
                 productBy: stores[3]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
+                images: ['https://i.pinimg.com/564x/51/4e/a5/514ea5b85df6d85f2d8b7854be768625.jpg']
             },
             {
-                title: 'Producto 2 Tienda 4',
+                title: "Harry mugger",
                 price: 29.99,
-                description: 'Descripción del producto 2 para la Tienda 4.',
+                description: 'A mug with a custom graphic print',
                 quantity: 40,
                 subtotal: 0,
                 stock: 80,
-                categories: [categories[2]],
-                productBy: stores[3]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
-            },
-            {
-                title: 'Producto 3 Tienda 4',
-                price: 39.99,
-                description: 'Descripción del producto 3 para la Tienda 4.',
-                quantity: 30,
-                subtotal: 0,
-                stock: 60,
-                categories: [categories[1]],
-                productBy: stores[3]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
-            },
-            {
-                title: 'Producto 4 Tienda 4',
-                price: 49.99,
-                description: 'Descripción del producto 4 para la Tienda 4.',
-                quantity: 20,
-                subtotal: 0,
-                stock: 40,
-                categories: [categories[0]],
-                productBy: stores[3]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
-            },
-            {
-                title: 'Producto 5 Tienda 4',
-                price: 59.99,
-                description: 'Descripción del producto 5 para la Tienda 4.',
-                quantity: 10,
-                subtotal: 0,
-                stock: 20,
                 categories: [categories[3]],
                 productBy: stores[3]._id,
-                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
-            }
+                images: ['https://i.pinimg.com/564x/52/f8/ea/52f8ea52308db612d3187defd6bcf5c2.jpg']
+            },
         ];
 
         await ProductModel.deleteMany({});
