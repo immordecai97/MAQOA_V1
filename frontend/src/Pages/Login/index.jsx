@@ -2,7 +2,8 @@ import Layout from "../../Components/Layout"
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ShopMaqoaContext } from "../../Context";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+
 
 
 const Login = () => {
@@ -10,9 +11,9 @@ const Login = () => {
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const { signIn, isAuth, setCurrentRegister } = useContext(ShopMaqoaContext);
 
-	useEffect(()=>{
+	useEffect(() => {
 		setCurrentRegister(false)
-	},[])
+	}, [])
 
 	if (isAuth) {
 		return <Navigate to="/" />;
@@ -50,7 +51,11 @@ const Login = () => {
 					<div className="flex flex-col gap-1">
 						<button type="submit" className="bg-black text-white py-2 px-4 w-full rounded text-center">Sign in</button>
 					</div>
+					<p className="text-xs text-center">
+						If you don't have an account yet, <Link to="/register" className="text-blue-600 hover:underline">register here</Link>
+					</p>
 				</form>
+
 			</div>
 		</Layout>
 	)

@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import Layout from "../../Components/Layout";
 import { useForm } from "react-hook-form";
 import { ShopMaqoaContext } from "../../Context";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -55,6 +55,9 @@ const Register = () => {
                     <div className="flex flex-col gap-1">
                         <button type="submit" className="bg-black text-white py-2 px-4 w-full rounded text-center">Sign up</button>
                     </div>
+                    <p className="text-xs text-center">
+                        If you already have an account, <Link to="/login" className="text-blue-600 hover:underline"> log in here</Link>
+					</p>
                 </form>
             </div>
         </Layout>

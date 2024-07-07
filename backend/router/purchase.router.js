@@ -1,13 +1,17 @@
 import 'dotenv/config'
 import { Router } from "express";
 import authUser from './../middlewares/auth.middleware.js'
-import { getPurchasesList, createPurchase, getPurchaseByID, updatePurchaseByID, deletePurchase } from "./../controllers/purchase.controller.js";
+import { getPurchasesList, createPurchase, getPurchaseByID, updatePurchaseByID, deletePurchase, getPurchasesListByUserId } from "./../controllers/purchase.controller.js";
 
 const router = Router();
 
 /** Traer la lista de compras GET*/
 router.get("/", getPurchasesList);
 // router.get("/", authUser, getPurchasesList);
+
+/** Traer la lista de compras por usuario especifico GET*/
+router.get("/history", getPurchasesListByUserId);
+// router.get("/", authUser, getPurchasesListByUserId);
 
 /** Crear un compra POST*/
 router.post("/create", createPurchase);

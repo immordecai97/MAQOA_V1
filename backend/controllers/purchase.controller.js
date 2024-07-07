@@ -1,9 +1,41 @@
-import PurchaseModel from '../models/purchase.model.js'; // Asegúrate de que la ruta del modelo sea correcta
+import  jwt  from 'jsonwebtoken';
+import PurchaseModel from '../models/purchase.model.js'; 
+import UserModel from '../models/user.model.js'; 
 
 /** Traer la lista de todos las compras */
 export const getPurchasesList = async (req, res) => {
   try {
     const purchasesList = await PurchaseModel.find().populate('cartBasket');
+
+    res.status(200).json(purchasesList);
+  } catch (error) {
+    res.status(401).json({
+      msg: "Acceso a compras no autorizado",
+      error: error.message
+    });
+  }
+};
+
+/** Traer la lista de todos las compras */
+export const getPurchasesListByUserId = async (req, res) => {
+  try {
+    const { token } = req.cookies;
+    if (!token) {
+      return res.status(401).json({
+        msg: 'No han iniciado sesión, no autorizado'
+      });
+    }
+
+    const decoded = jwt.verify(token, process.env.SECRET_KEY);
+    const user = await UserModel.findById(decoded.sub, { password: 0 });
+
+    if (!user) {
+      return res.status(404).json({
+        msg: 'Usuario no encontrado'
+      });
+    }
+
+    const purchasesList = await PurchaseModel.find({ user: user._id }).populate('cartBasket');
 
     res.status(200).json(purchasesList);
   } catch (error) {

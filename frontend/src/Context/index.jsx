@@ -1,5 +1,7 @@
 import { createContext, useState, useEffect } from "react";
-import { registerUser, loginUser, logOut } from "../Services/auth.service";
+import { registerUser, loginUser, logOut } from "../Services/auth.service.js";
+
+// import { makePurchase } from "../Services/purchase.service.js";
 
 export const ShopMaqoaContext = createContext();
 
@@ -8,18 +10,90 @@ export const ShopMaqoaProvider = ({ children }) => {
         const storedPurchase = localStorage.getItem('purchase');
         return storedPurchase ? JSON.parse(storedPurchase) : null;
     });
-    const [userPurchase, setUserPurchase] = useState(false);
+    // const [userPurchase, setUserPurchase] = useState(false);
 
-    const onSubmitPurchase = (value) => {
-        const newPurchase = {
-            ...value,
+    const onSubmitPurchase = async (data) => {
+        // console.table(data)
+        // console.table(cartBasket)
+        // console.table(cartSubtotal)
+        // console.table(purchase)
+        const purchaseData = {
+            user: data.userID,
+            address: {
+                country: data.country,
+                address: data.address
+            },
+            cardInfo: {
+                cardDate: data.cardDate,
+                cardNumber: data.cardNumber,
+                cvc: data.cvc
+            },
             cartBasket,
             shipping: 5,
-            total: cartSubtotal
+            subtotal: cartSubtotal,
+            total: (cartSubtotal + 5)
         };
-        setPurchase(newPurchase);
-        setUserPurchase(true);
-        localStorage.setItem('purchase', JSON.stringify(newPurchase)); // Guardar en localStorage
+        console.log(purchaseData)
+        try {
+            const res = await fetch(`http://localhost:3000/purchases/create`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(purchaseData)
+            })
+            if (!res.ok) {
+                const errorDetails = await res.json();
+                throw new Error(errorDetails.message || 'Network response was not ok');
+            }
+            const result = await res.json();
+            setPurchase(purchaseData)
+            console.log('Respuesta:', result)
+        } catch (error) {
+            console.error('Error making purchase:', error.message);
+        }
+
+        // try {
+        //     console.log(purchase)
+        //     console.log('PURCHASSE',data)
+        // //   const response = await fetch('/api/purchase', {
+        //     const res = await fetch(`http://localhost:3000/purchases/create`, {
+        //     method: 'POST',
+        //     headers: {
+        //       'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //       ...data,
+        //       cartBasket,
+        //       user,
+        //       purchase,
+        //     }),
+        //   });
+        //   if (!res.ok) {
+        //     const errorDetails = await res.json();
+        //     throw new Error(errorDetails.message || 'Network response was not ok');
+        //   }
+        //   const result = await res.json();
+        // //   setUserPurchase(true);
+        //   // Handle successful purchase
+        // } catch (error) {
+        //   console.error('Error making purchase:', error.message);
+        // }
+    };
+
+    const resetCart = () => {
+        // Limpiar valores relacionados con el carrito
+        localStorage.removeItem('cartBasket');
+        localStorage.removeItem('cartQuantity');
+
+        // Actualizar el estado local del carrito
+        setCartBasket([]);
+        setCartQuantity(0);
+        setCartSubtotal(0); // Si es necesario
+        setPurchase(null)
+
+        // Realizar otras acciones necesarias al reestablecer el carrito
+        // Por ejemplo, recalcular el subtotal si es necesario
     };
 
     const [showModal, setShowModal] = useState(false);
@@ -194,7 +268,9 @@ export const ShopMaqoaProvider = ({ children }) => {
             cartBasket, cartSubtotal, cartQuantity, addToCart, subtractFromCart, removeFromCart,
             showModal, toggleModal,
             purchase, setPurchase,
-            userPurchase, setUserPurchase, onSubmitPurchase
+            onSubmitPurchase,
+            resetCart,
+            //userPurchase, setUserPurchase,
         }}>
             {children}
         </ShopMaqoaContext.Provider>

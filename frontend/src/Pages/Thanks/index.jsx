@@ -1,14 +1,32 @@
 import { useContext } from "react"
 import { ShopMaqoaContext } from "../../Context"
 import Layout from "../../Components/Layout"
+import { Navigate } from "react-router-dom"
 // import { IconPlus, IconMinus } from '@tabler/icons-react';
 
 
 
 const Thanks = () => {
-	const { purchase, cartBasket, cartSubtotal } = useContext(ShopMaqoaContext)
+	const { purchase, resetCart, user } = useContext(ShopMaqoaContext)
 	console.log(purchase)
+
+	const finishAndContinue = () => {
+		resetCart()
+	}
+	if (!purchase) {
+		return <Navigate to="/" />
+	}
+	const { address, cartBasket, shipping, subtotal, total } = purchase
+	const { country, address: addrs } = address
+
+
+
 	return (
+		// <Layout title="Thanks for your purchase!">
+		// 	<div>
+		// 		<button onClick={finishAndContinue} className="rounded bg-black text-white py-2 px-4 w-full">Continue</button>
+		// 	</div>
+		// </Layout>
 		<Layout title="Thanks for your purchase!">
 			<div className="w-full flex items-center justify-center">
 				<div className="p-4 shadow-lg w-[30rem] flex flex-col gap-4">
@@ -17,12 +35,12 @@ const Thanks = () => {
 							<h2 className="font-bold">Ticket</h2>
 							<p>
 								<span className="text-xs">Username: </span> <span className="text-gray-500">
-									{purchase.username}
+									{user.username}
 								</span>
 							</p>
 							<p>
 								<span className="text-xs">Emial: </span> <span className="text-gray-500">
-									{purchase.email}
+									{user.email}
 								</span>
 							</p>
 						</div>
@@ -30,12 +48,12 @@ const Thanks = () => {
 							<h2 className="font-bold">Shipping address</h2>
 							<p>
 								<span className="text-xs">Country: </span> <span className="text-gray-500">
-									{purchase.country}
+									{country}
 								</span>
 							</p>
 							<p>
 								<span className="text-xs">Address: </span> <span className="text-gray-500">
-									{purchase.address}
+									{addrs}
 								</span>
 							</p>
 						</div>
@@ -71,21 +89,21 @@ const Thanks = () => {
 									<td></td>
 									<td></td>
 									<td className="text-end font-bold">Shipping:</td>
-									<td className="text-center font-bold">${purchase.shipping}</td>
+									<td className="text-center font-bold">${shipping}</td>
 								</tr>
 								<tr>
 									<td></td>
 									<td className="text-xs text-gray-400">Ground shipping</td>
 									<td className="text-xs text-gray-400">(3-5 Days)</td>
 									<td className="text-end font-bold">total:</td>
-									<td className="text-center font-bold">${(cartSubtotal + purchase.shipping).toFixed(2)}</td>
+									<td className="text-center font-bold">${(total).toFixed(2)}</td>
 								</tr>
 							</tbody>
 						</table>
 
 					</div>
 					<div>
-						<button className="rounded bg-black text-white py-2 px-4 w-full">Continue</button>
+						<button onClick={finishAndContinue} className="rounded bg-black text-white py-2 px-4 w-full">Continue</button>
 					</div>
 				</div>
 			</div>
