@@ -42,20 +42,28 @@ const AboutUs = ()=>{
                 </article>
                 <article className="flex flex-wrap w-full max-w-4xl items-center justify-center gap-4 my-2 mb-8">
                     <h2 className="font-bold text-center w-full text-[1.7rem] mb-2">Why MAQOA?</h2>
-                    <div className="flex flex-col  gap-4 mx-auto w-[400px] h-[325px] border p-2 rounded-lg">
-                        <h3 className="w-full font-bold text-center ">For Designers</h3>
-                        <ul className="flex flex-col gap-3">
-                            <li className="border rounded-lg shadow"><p className="text-start m-2"><strong>No Initial Investment</strong>: Start your e-commerce store without spending a dime.</p></li>
-                            <li className="border rounded-lg shadow"><p className="text-start m-2"><strong>Exclusive Storefronts</strong>: Create a unique store with your brand and exclusive designs.</p></li>
-                            <li className="border rounded-lg shadow"><p className="text-start m-2"><strong>International Exposure</strong>: Reach customers in the United States and Canada, with plans to expand to Europe.</p></li>
+                    <div className="flex flex-col  gap-4 mx-auto w-[400px]  p-2 rounded-lg">
+                        <h3 className="w-full font-bold text-center mt-2">For Designers</h3>
+                        <ul className="border rounded-lg flex flex-col gap-3 shadow p-3 mb-2 h-[225px]">
+                            <li className="">
+                                <p className=""><strong>No Initial Investment</strong>: Start your e-commerce store without spending a dime.</p>
+                            </li>
+                            <li className=""><p className=""><strong>Exclusive Storefronts</strong>: Create a unique store with your brand and exclusive designs.</p></li>
+                            <li className=""><p className=""><strong>International Exposure</strong>: Reach customers in the United States and Canada, with plans to expand to Europe.</p></li>
                         </ul>
                     </div>
-                    <div className="flex flex-col  gap-4 mx-auto  w-[400px] h-[325px] border p-2 rounded-lg">
-                        <h3 className="w-full font-bold text-center ">For Customers</h3>
-                        <ul className="">
-                            <li><strong>Unique Products</strong>: Discover exclusive designs and high-quality print-on-demand items.</li>
-                            <li><strong>Support Artists</strong>: Every purchase supports a talented graphic designer from Latin America.</li>
-                            <li><strong>Secure Shopping</strong>: Enjoy a seamless and secure shopping experience.</li>
+                    <div className="flex flex-col  gap-4 mx-auto  w-[400px]  p-2 rounded-lg">
+                        <h3 className="w-full font-bold text-center mt-2">For Customers</h3>
+                        <ul className="border rounded-lg flex flex-col gap-3 shadow p-3 mb-2 h-[225px]">
+                            <li>
+                                <p><strong>Unique Products</strong>: Discover exclusive designs and high-quality print-on-demand items.</p>
+                            </li>
+                            <li>
+                                <p><strong>Support Artists</strong>: Every purchase supports a talented graphic designer from Latin America.</p>
+                            </li>
+                            <li>
+                                <p><strong>Secure Shopping</strong>: Enjoy a seamless and secure shopping experience.</p>
+                            </li>
                         </ul>
                     </div>
                 </article>
