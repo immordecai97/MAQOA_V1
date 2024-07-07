@@ -264,7 +264,7 @@ export const ShopMaqoaProvider = ({ children }) => {
             product, setProduct,
             store, setStore,
             currentRegister, setCurrentRegister, signUp,
-            user, isAuth, signIn, logout,
+            user, setUser, isAuth, signIn, logout,
             cartBasket, cartSubtotal, cartQuantity, addToCart, subtractFromCart, removeFromCart,
             showModal, toggleModal,
             purchase, setPurchase,
