@@ -1,6 +1,6 @@
 import ProductModel from '../models/product.model.js';
-import CategoryModel from '../models/category.model.js'; // Asegúrate de importar el modelo de categorías si aún no lo has hecho
-import StoreModel from '../models/store.model.js'; // Importa el modelo de tiendas si aún no lo has hecho
+import CategoryModel from '../models/category.model.js';
+import StoreModel from '../models/store.model.js';
 
 const getCategories = async () => {
     try {
@@ -12,53 +12,89 @@ const getCategories = async () => {
     }
 };
 
-const getStoreId = async () => {
+const getStores = async () => {
     try {
-        const store = await StoreModel.findOne(); // Asegúrate de obtener la tienda de la cual deseas obtener el ID
-        if (!store) {
-            throw new Error('No se encontró ninguna tienda.');
+        const stores = await StoreModel.find(); // Obtener todas las tiendas
+        if (!stores.length) {
+            throw new Error('No se encontraron tiendas.');
         }
-        return store._id;
+        return stores;
     } catch (error) {
-        console.error('Error al obtener el ID de la tienda:', error.message);
-        throw new Error('No se pudo obtener el ID de la tienda');
+        console.error('Error al obtener las tiendas:', error.message);
+        throw new Error('No se pudieron obtener las tiendas');
     }
 };
+
 const seedProductsToDB = async () => {
     try {
         const categories = await getCategories();
-        const storeId = await getStoreId();
+        const stores = await getStores();
 
-        const seedProducts = [
-            {
-                title: 'Graphic T-Shirt',
+        const seedProducts = [];
+
+        // Productos para la primera tienda (2 productos)
+        for (let i = 0; i < 2; i++) {
+            seedProducts.push({
+                title: `Producto ${i + 1} Tienda 1`,
                 price: 19.99,
-                description: 'High-quality cotton T-shirt with custom graphic print.',
+                description: `Descripción del producto ${i + 1} para la Tienda 1.`,
                 quantity: 50,
-                subtotal: 0, // Este valor se calculará en el middleware si se habilita
+                subtotal: 0,
                 stock: 100,
-                categories: [categories[2]], // Asigna el ID de la categoría correspondiente
-                productBy: storeId, // Asigna el ID de la tienda obtenido
+                categories: [categories[i % categories.length]],
+                productBy: stores[0]._id,
                 images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
-            },
-            {
-                title: 'Logo T-Shirt',
+            });
+        }
+
+        // Productos para la segunda tienda (3 productos)
+        for (let i = 0; i < 3; i++) {
+            seedProducts.push({
+                title: `Producto ${i + 1} Tienda 2`,
                 price: 19.99,
-                description: 'Comfortable T-shirt featuring a custom logo print.',
-                quantity: 30,
-                subtotal: 0, // Este valor se calculará en el middleware si se habilita
-                stock: 75,
-                categories: [categories[2]], // Asigna el ID de la categoría correspondiente
-                productBy: storeId, // Asigna el ID de la tienda obtenido
+                description: `Descripción del producto ${i + 1} para la Tienda 2.`,
+                quantity: 50,
+                subtotal: 0,
+                stock: 100,
+                categories: [categories[i % categories.length]],
+                productBy: stores[1]._id,
                 images: ['https://i.pinimg.com/564x/c7/bc/13/c7bc135e2e6ba2ed317e431b542bbb03.jpg']
-            }
-            // Agrega más productos según sea necesario
-        ];
+            });
+        }
+
+        // Productos para la tercera tienda (4 productos)
+        for (let i = 0; i < 4; i++) {
+            seedProducts.push({
+                title: `Producto ${i + 1} Tienda 3`,
+                price: 19.99,
+                description: `Descripción del producto ${i + 1} para la Tienda 3.`,
+                quantity: 50,
+                subtotal: 0,
+                stock: 100,
+                categories: [categories[i % categories.length]],
+                productBy: stores[2]._id,
+                images: ['https://i.pinimg.com/564x/38/24/b2/3824b281c386fa011e59f5a3dade0943.jpg']
+            });
+        }
+
+        // Productos para la cuarta tienda (5 productos)
+        for (let i = 0; i < 5; i++) {
+            seedProducts.push({
+                title: `Producto ${i + 1} Tienda 4`,
+                price: 19.99,
+                description: `Descripción del producto ${i + 1} para la Tienda 4.`,
+                quantity: 50,
+                subtotal: 0,
+                stock: 100,
+                categories: [categories[i % categories.length]],
+                productBy: stores[3]._id,
+                images: ['https://i.pinimg.com/564x/c7/bc/13/c7bc135e2e6ba2ed317e431b542bbb03.jpg']
+            });
+        }
 
         await ProductModel.deleteMany({});
         const createdProducts = await ProductModel.insertMany(seedProducts);
 
-        // Aquí se devuelven los productos creados para poder actualizar las tiendas
         return createdProducts;
     } catch (err) {
         console.error('Error insertando productos:', err);
