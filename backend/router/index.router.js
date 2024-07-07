@@ -8,7 +8,7 @@ import purchaseRouter from "./purchase.router.js"
 const routerApi = (app) => {
 	app.use('/', homeRouter);
 	app.use('/users', userRouter);
-	app.use('/store', storeRouter);
+	app.use('/stores', storeRouter);
 	app.use('/products', productRouter);
 	app.use('/categories', categoryRouter);
 	app.use('/purchases', purchaseRouter);

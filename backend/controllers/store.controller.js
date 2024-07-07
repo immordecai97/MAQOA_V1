@@ -5,7 +5,7 @@ import StoreModel from "../models/store.model.js";
 /**Traer la lista de todos los tiendas */
 export const getStoresList = async (req, res) => {
 	try {
-		const storesList = await StoreModel.find().populate('User').populate('Category').populate('Product')
+		const storesList = await StoreModel.find().populate('productsList').populate('owner')
 
 		res.status(200).json(storesList);
 		// res.status(200).json({
@@ -14,6 +14,7 @@ export const getStoresList = async (req, res) => {
 	} catch (error) {
 		res.status(401).json({
 			msg: "Acceso a tiendas no autorizado",
+			error: error.message
 		});
 	}
 };
@@ -53,7 +54,14 @@ export const createStore = async (req, res) => {
 export const getStoreByID = async (req, res) => {
 	try {
 		const { id } = req.params
-		const store = await StoreModel.findById(id).populate('User').populate('Category').populate('Product')
+		const store = await StoreModel.findById(id).populate('productsList').populate('owner')
+			.populate({
+				path: 'productsList',
+				populate: {
+					path: 'categories',
+					model: 'Category'
+				}
+			})
 		res.status(200).json(store)
 		// res.status(200).json({
 		// 	store: store

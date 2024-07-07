@@ -10,8 +10,8 @@ const App = () => {
     return (
         <ShopMaqoaProvider>
             <BrowserRouter>
-                <AppRoutes />
                 <Navbar />
+                <AppRoutes />
                 <ModalCart/>
                 <Footer />
             </BrowserRouter>

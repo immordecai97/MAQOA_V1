@@ -2,6 +2,7 @@ import { useRoutes } from 'react-router-dom'
 import Home from '../Pages/Home'
 import ProductDetails from '../Pages/ProductDetails'
 import Store from '../Pages/Store'
+import Stores from '../Pages/Stores'
 import Login from '../Pages/Login'
 import Register from '../Pages/Register'
 import AboutUs from '../Pages/AboutUs'
@@ -29,8 +30,8 @@ const AppRoutes = () => {
 		{ path: '/checkout', element: <PrivateRoute element={Checkout} /> },
 		{ path: '/thanks', element: <PrivateRoute element={Thanks} /> },
 		{ path: '/dashboard', element: <PrivateRoute element={User} /> },
-		// { path: '/dashboard', element: <PrivateRoute element={Dashboard} /> },
 		{ path: '/store/:id', element: <Store /> },
+		{ path: '/shops', element: <Stores /> },
 		{ path: '/product/:id', element: <ProductDetails />},
 	])
 	return routes

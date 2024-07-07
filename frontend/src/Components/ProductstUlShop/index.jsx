@@ -3,7 +3,7 @@ import { CategoriesUl } from "../Categories";
 import { useContext, useEffect } from "react";
 import { ShopMaqoaContext } from "../../Context";
 
-const ProductstUl = ({ products }) => {
+const ProductstUlShop = ({ products }) => {
   return (
     <ul className="flex flex-wrap gap-4 px-16 justify-center mt-6">
       {
@@ -44,22 +44,7 @@ const Card = ({ data }) => {
       </Link>
       {/* DATOS DEL PRODUCTO */}
       <div className="p-2 flex flex-col">
-        {/* TIENDA SHOP */}
-        <div className="flex items-center gap-2">
-          <figure className="rounded-full w-[2rem] h-[2rem] overflow-hidden flex items-center">
-            <img
-              src={data.productBy.images.logo}
-              alt={data.productBy.name}
-              className="w-full transition hover:scale-150 h-full object-cover"
-            />
-          </figure>
-          <p className="text-xs">
-            <span className="font-bold">Shop: </span>
-            <Link to={`/store/${data.productBy._id}`} className="hover:text-blue-600 hover:underline">
-              {data.productBy.name}
-            </Link>
-          </p>
-        </div>
+     
         {/* MÁS DATOS */}
         {/* TITULO DEL PRODUCTO */}
         <h3 className="font-bold text-xl">{data.title}</h3>
@@ -90,4 +75,4 @@ const Card = ({ data }) => {
   );
 };
 
-export default ProductstUl
+export default ProductstUlShop

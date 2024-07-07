@@ -6,6 +6,9 @@ import { registerUser, loginUser, logOut } from "../Services/auth.service.js";
 export const ShopMaqoaContext = createContext();
 
 export const ShopMaqoaProvider = ({ children }) => {
+
+    const [stores, setStores] = useState([])
+
     const [purchase, setPurchase] = useState(() => {
         const storedPurchase = localStorage.getItem('purchase');
         return storedPurchase ? JSON.parse(storedPurchase) : null;
@@ -270,7 +273,7 @@ export const ShopMaqoaProvider = ({ children }) => {
             purchase, setPurchase,
             onSubmitPurchase,
             resetCart,
-            //userPurchase, setUserPurchase,
+            stores, setStores
         }}>
             {children}
         </ShopMaqoaContext.Provider>

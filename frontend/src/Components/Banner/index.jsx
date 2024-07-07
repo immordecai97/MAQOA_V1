@@ -15,8 +15,8 @@ const Banner = () => {
         <figure className="flex justify-center items-center">
           <img
             className="w-full max-w-[250px] scale-150 "
-            src="./../../public/images/phone.png"
-            alt=""
+            src="/images/phone.png"
+            alt="Ecommerce MAQOA on screen phone"
           />
         </figure>
       </section>
