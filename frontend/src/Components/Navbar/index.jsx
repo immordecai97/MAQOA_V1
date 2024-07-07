@@ -6,6 +6,7 @@ import { ShopMaqoaContext } from '../../Context';
 const Navbar = () => {
   const {
     isAuth,
+    user,
     cartQuantity,
     // showModal,
     toggleModal,
@@ -40,6 +41,7 @@ const Navbar = () => {
           <>
             <li >
               <NavLink to='/dashboard' className='flex items-center cursor-pointer'>
+              <span className='font-bold capitalize'>{user.username} </span>
                 <IconGhost stroke={1.25} />
               </NavLink>
             </li>
