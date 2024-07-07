@@ -84,9 +84,11 @@ export const updateUserByID = async (req, res) => {
 				$set: body,
 			}
 		)
-		res.status(200).json({
-			msg: 'Usuario modificado con éxito'
-		})
+		const user = await UserModel.findById(id)
+		res.status(200).json(user)
+		// res.status(200).json({
+		// 	msg: 'Usuario modificado con éxito'
+		// })
 	} catch (error) {
 		res.status(404).json({
 			msg: 'No se pudo modificar el usuario'

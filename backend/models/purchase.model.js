@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 const PurchaseSchema = new Schema({
-  user:{
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
@@ -41,7 +41,9 @@ const PurchaseSchema = new Schema({
     type: Number,
     required: false,
   }
-});
+},
+  { timestamps: true }
+);
 
 const PurchaseModel = model('Purchase', PurchaseSchema);
 export default PurchaseModel;

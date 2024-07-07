@@ -19,8 +19,6 @@ const PrivateRoute = ({ element: Component }) => {
 	return isAuth ? <Component /> : <Navigate to="/login" />;
 };
 
-
-
 /**Creamos el array de rutas */
 const AppRoutes = () => {
 	const routes = useRoutes([
