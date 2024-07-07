@@ -1,6 +1,5 @@
 import Layout from "../../Components/Layout";
 import { useContext, useEffect } from "react"
-import Layout from "../../Components/Layout"
 import { ShopMaqoaContext } from "../../Context"
 import { fetchPurchaseHistorial } from "../../Services/purchase.service.js"
 
@@ -20,7 +19,7 @@ const User = ()=>{
 		handleFetchHistory()
 	}, [])
     return(
-        <Layout title="User">
+        <Layout title={"Account"} >
             <section className="w-full max-w-[1200px] flex justify-center flex-wrap items-center text-center gap-4 rounded border h-full max-h-[900px] shadow-lg">
                 <h2 className="w-full mt-6 text-[1.8rem] font-bold">Dashboard de Usuario</h2>
                 <div className="w-full max-w-[550px] p-3 border rounded-lg my-4 shadow-lg">

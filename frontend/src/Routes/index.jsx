@@ -16,7 +16,6 @@ import { ShopMaqoaContext } from '../Context'
 
 const PrivateRoute = ({ element: Component }) => {
 	const { isAuth } = useContext(ShopMaqoaContext);
-
 	return isAuth ? <Component /> : <Navigate to="/login" />;
 };
 
