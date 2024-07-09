@@ -5,13 +5,15 @@ import { ShopMaqoaContext } from "../../Context";
 
 const ProductstUl = ({ products }) => {
   return (
-    <ul className="flex flex-wrap gap-4 px-16 justify-center mt-6">
-      {
-        products?.map(item => (
-          <Card key={item._id} data={item} />
-        ))
-      }
-    </ul >
+    <>
+      <h2 className="mt-8 font-extrabold text-[2.1rem]">Catalogue</h2>
+      <ul className="flex flex-wrap gap-4 px-16 justify-center mt-6">
+        {
+          products?.map(item => (
+            <Card key={item._id} data={item} />
+          ))
+        }
+      </ul ></>
   )
 }
 

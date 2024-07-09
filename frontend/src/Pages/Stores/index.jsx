@@ -36,7 +36,7 @@ const Stores = () => {
 						stores?.map((shop) => (
 							<li key={shop._id} >
 								<Link to={`/store/${shop._id}`} className="flex flex-col items-center justify-center gap-2">
-									<figure className='rounded-full w-[6rem] h-[6rem] overflow-hidden '>
+									<figure className='rounded-full w-[6rem] h-[6rem] overflow-hidden flex items-center'>
 										<img src={shop.images.logo} alt="" className='transition w-full hover:scale-125' />
 									</figure>
 									<h2 className='font-bold'>{shop.name}</h2>
